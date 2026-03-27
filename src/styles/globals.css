@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #1B3A34;
+  --color-forest-light: #2A5248;
+  --color-cream: #F5F0E8;
+  --color-cream-dark: #EAE3D5;
+  --color-gold: #C9A84C;
+  --color-gold-light: #D4B96A;
+  --color-charcoal: #2C2C2C;
+  --color-stone: #6B6B6B;
+
+  --font-display: 'Cormorant Garamond', serif;
+  --font-sans: 'DM Sans', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: thin;
+  scrollbar-color: #C9A84C #EAE3D5;
+}
+
+html::-webkit-scrollbar {
+  width: 6px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #EAE3D5;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #C9A84C;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: #2C2C2C;
+  background-color: #ffffff;
+}
+
+::selection {
+  background-color: #C9A84C;
+  color: #1B3A34;
+}
+
+:focus-visible {
+  outline: 2px solid #C9A84C;
+  outline-offset: 3px;
+}
+
+.section-padding {
+  @apply px-4 py-20 md:px-8 md:py-28;
+}
+
+.container-custom {
+  @apply max-w-6xl mx-auto px-4 md:px-8;
+}
+
+.font-display {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(-16px); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 0.6; }
+  100% { transform: translateY(40px); opacity: 0; }
+}
