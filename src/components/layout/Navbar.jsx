@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { clinicData } from '@/data/clinic'
 import { services } from '@/data/services'
+import logo from '@/assets/images/logo.png'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -44,7 +45,7 @@ export default function Navbar() {
   }, [location])
 
   const navLinkClass = isServicePage || isScrolled
-    ? 'text-charcoal hover:text-gold'
+    ? 'text-cream/90 hover:text-gold-400'
     : 'text-cream/90 hover:text-gold'
 
   return (
@@ -52,26 +53,15 @@ export default function Navbar() {
       {/* Desktop Navbar */}
       <nav
         className={`hidden md:flex fixed top-0 left-0 right-0 h-20 items-center z-40 transition-all duration-400 ${
-          isServicePage
-            ? 'bg-white/97 backdrop-blur-md shadow-sm border-b border-stone/10'
-            : isScrolled
-            ? 'bg-white/97 backdrop-blur-md shadow-sm border-b border-stone/10'
+          isScrolled
+            ? 'bg-grey-800/95 backdrop-blur-md shadow-lg border-b border-gold-600/30'
             : 'bg-transparent'
         }`}
       >
         <div className="container-custom w-full flex items-center justify-between">
           {/* Logo */}
-          <Link
-            to="/"
-            className={`font-display text-2xl font-semibold tracking-wide transition-colors duration-300 ${
-              isServicePage || isScrolled ? 'text-forest' : 'text-cream'
-            }`}
-          >
-            Cabello
-            <span className="text-gold"> |</span>
-            <span className={`text-base font-sans font-light ml-2 ${isServicePage || isScrolled ? 'text-stone' : 'text-cream/70'}`}>
-              Clínica Dental
-            </span>
+          <Link to="/" className="flex items-center h-6 drop-shadow-md">
+            <img src={logo} alt="Clínica Dental Cabello" className="h-full w-auto object-contain filter contrast-125" />
           </Link>
 
           {/* Nav Links */}
@@ -123,7 +113,7 @@ export default function Navbar() {
           {/* CTA */}
           <a
             href={`tel:${clinicData.contact.phone.main}`}
-            className="text-sm font-medium bg-gold text-forest px-5 py-2.5 hover:bg-gold-light transition-colors duration-200"
+            className="text-sm font-medium bg-gold-500 text-grey-900 px-5 py-2.5 hover:bg-gold-400 transition-colors duration-200 shadow-md"
           >
             {clinicData.contact.phone.main}
           </a>
@@ -133,20 +123,15 @@ export default function Navbar() {
       {/* Mobile Navbar */}
       <nav
         className={`md:hidden fixed top-0 left-0 right-0 h-16 z-40 flex items-center px-4 transition-all duration-300 ${
-          isScrolled || isMobileMenuOpen ? 'bg-white shadow-sm' : 'bg-transparent'
+          isScrolled || isMobileMenuOpen ? 'bg-grey-800/95 shadow-lg' : 'bg-transparent'
         }`}
       >
-        <Link
-          to="/"
-          className={`font-display text-xl font-semibold flex-1 ${
-            isScrolled || isMobileMenuOpen ? 'text-forest' : 'text-cream'
-          }`}
-        >
-          Cabello <span className="text-gold">|</span>
+        <Link to="/" className="flex items-center h-5 flex-1 drop-shadow-md">
+          <img src={logo} alt="Clínica Dental Cabello" className="h-full w-auto object-contain filter contrast-125" />
         </Link>
 
         <button
-          className={`p-2 transition-colors ${isScrolled || isMobileMenuOpen ? 'text-forest' : 'text-cream'}`}
+          className={`p-2 transition-colors ${isScrolled || isMobileMenuOpen ? 'text-cream hover:text-gold' : 'text-cream hover:text-gold'}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Menú"
         >

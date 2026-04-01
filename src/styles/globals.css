@@ -1,15 +1,50 @@
 @import "tailwindcss";
 
 @theme {
-  --color-forest: #1B3A34;
+  /* === COLORES PRIMARIOS - GRISES CON MAYOR CONTRASTE === */
+  /* Beige/Crema */
+  --color-beige-50: #f3ede5;
+  --color-beige-100: #ebe3d9;
+  --color-beige-200: #e0d6cc;
+  --color-beige-300: #d9c8b3;
+  --color-beige-400: #cdb89f;
+  --color-beige-500: #b89d84;
+
+  /* Grises - MÁXIMO CONTRASTE */
+  --color-grey-50: #fefefe;
+  --color-grey-100: #f9f9f8;
+  --color-grey-200: #f0f0ee;
+  --color-grey-300: #e5e5e3;
+  --color-grey-400: #d5d5d2;
+  --color-grey-500: #b8b8b5;
+  --color-grey-600: #6f6f6f;
+  --color-grey-700: #4a4a4a;
+  --color-grey-800: #2a2a2a;
+  --color-grey-900: #1a1a1a;
+
+  /* === ACENTOS PREMIUM - DORADO EXPANDIDO === */
+  --color-gold-50: #faf5f0;
+  --color-gold-100: #f5eae0;
+  --color-gold-200: #ede0d1;
+  --color-gold-300: #e8d4b8;
+  --color-gold-400: #e0c8a0;
+  --color-gold-500: #d9bf8f;
+  --color-gold-600: #c9975f;
+  --color-gold-700: #ba8c52;
+  --color-gold-800: #a67c42;
+  --color-gold-900: #8a6333;
+
+  /* === LEGADO - Para compatibilidad === */
+  --color-forest: var(--color-grey-900);
   --color-forest-light: #2A5248;
   --color-cream: #F5F0E8;
-  --color-cream-dark: #EAE3D5;
-  --color-gold: #C9A84C;
-  --color-gold-light: #D4B96A;
+  --color-cream-dark: var(--color-beige-200);
   --color-charcoal: #2C2C2C;
   --color-stone: #6B6B6B;
+  --color-gold: var(--color-gold-500);
+  --color-gold-light: var(--color-gold-300);
 
+  /* === FUENTES === */
   --font-display: 'Cormorant Garamond', serif;
   --font-sans: 'DM Sans', sans-serif;
 }
@@ -23,7 +58,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scrollbar-width: thin;
-  scrollbar-color: #C9A84C #EAE3D5;
+  scrollbar-color: var(--color-gold-500) var(--color-beige-200);
 }
 
 html::-webkit-scrollbar {
@@ -31,26 +66,26 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-track {
-  background: #EAE3D5;
+  background: var(--color-beige-200);
 }
 
 html::-webkit-scrollbar-thumb {
-  background: #C9A84C;
+  background: var(--color-gold-500);
 }
 
 body {
   font-family: 'DM Sans', sans-serif;
-  color: #2C2C2C;
+  color: var(--color-grey-900);
   background-color: #ffffff;
 }
 
 ::selection {
-  background-color: #C9A84C;
-  color: #1B3A34;
+  background-color: var(--color-gold-500);
+  color: var(--color-grey-900);
 }
 
 :focus-visible {
-  outline: 2px solid #C9A84C;
+  outline: 2px solid var(--color-gold-500);
   outline-offset: 3px;
 }
 

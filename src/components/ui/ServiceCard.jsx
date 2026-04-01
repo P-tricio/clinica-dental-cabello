@@ -106,7 +106,7 @@ export default function ServiceCard({ service }) {
 
   return (
     <Link to={`/servicios/${service.slug}`} className="group block h-full">
-      <div className="h-full p-8 bg-white flex flex-col gap-5 border-t-2 border-transparent hover:border-gold hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+      <div className="h-full p-8 bg-white flex flex-col gap-5 border border-stone/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:border-gold/40 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(201,168,76,0.15)] transition-all duration-400 rounded-sm group-hover:bg-cream/20">
 
         {/* Icono */}
         <div className="w-12 h-12 flex items-center justify-center text-gold border border-gold/25 group-hover:bg-gold group-hover:text-forest group-hover:border-gold group-hover:rotate-6 transition-all duration-300">

@@ -20,7 +20,7 @@ export default function Contact() {
         {/* Banda de datos clave */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12 mb-12">
           {/* Dirección */}
-          <div className="bg-cream-dark p-7 flex gap-4 items-start border-t-2 border-transparent hover:border-gold hover:shadow-md transition-all duration-300 group">
+          <div className="bg-white p-8 flex gap-5 items-start border border-stone/10 shadow-sm hover:border-gold/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group rounded-sm relative overflow-hidden">
             <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-forest/10 text-forest group-hover:bg-gold group-hover:text-forest transition-all duration-300">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
                 <path d="M12 21s-8-7-8-13a8 8 0 0116 0c0 6-8 13-8 13z"/><circle cx="12" cy="8" r="3"/>
@@ -37,7 +37,7 @@ export default function Contact() {
           </div>
 
           {/* Teléfono */}
-          <div className="bg-cream-dark p-7 flex gap-4 items-start border-t-2 border-transparent hover:border-gold hover:shadow-md transition-all duration-300 group">
+          <div className="bg-white p-8 flex gap-5 items-start border border-stone/10 shadow-sm hover:border-gold/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group rounded-sm relative overflow-hidden">
             <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-forest/10 text-forest group-hover:bg-gold group-hover:text-forest transition-all duration-300">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.2 2 2 0 012.22 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
@@ -66,7 +66,7 @@ export default function Contact() {
           </div>
 
           {/* Horario */}
-          <div className="bg-cream-dark p-7 flex gap-4 items-start border-t-2 border-transparent hover:border-gold hover:shadow-md transition-all duration-300 group">
+          <div className="bg-white p-8 flex gap-5 items-start border border-stone/10 shadow-sm hover:border-gold/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group rounded-sm relative overflow-hidden">
             <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-forest/10 text-forest group-hover:bg-gold group-hover:text-forest transition-all duration-300">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
                 <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
@@ -93,7 +93,7 @@ export default function Contact() {
         </div>
 
         {/* Formulario + Mapa */}
-        <div className="grid md:grid-cols-2 gap-px bg-stone/15">
+        <div className="grid md:grid-cols-2 shadow-xl border border-stone/10 rounded-sm overflow-hidden bg-white">
 
           {/* Formulario */}
           <AnimatedSection animation="slideLeft">

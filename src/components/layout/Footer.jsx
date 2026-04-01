@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { clinicData } from '@/data/clinic'
 import { services } from '@/data/services'
+import logo from '@/assets/images/logo.png'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -12,11 +13,10 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="md:col-span-1">
-            <h3 className="font-display text-2xl font-semibold mb-1">
-              Cabello <span className="text-gold">|</span>
-            </h3>
-            <p className="text-cream/65 text-sm mb-4">Clínica Dental</p>
-            <p className="text-cream/72 text-sm leading-relaxed">
+            <Link to="/" className="inline-block mb-3">
+              <img src={logo} alt="Clínica Dental Cabello" className="h-10 w-auto object-contain" />
+            </Link>
+            <p className="text-cream/72 text-xs leading-relaxed">
               {clinicData.address.street}<br />
               {clinicData.address.cp} {clinicData.address.city}<br />
               {clinicData.address.province}

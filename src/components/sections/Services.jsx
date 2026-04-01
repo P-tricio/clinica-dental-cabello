@@ -19,7 +19,7 @@ export default function Services() {
         </AnimatedSection>
 
         {/* Grid 4 columnas en desktop, 2 en tablet, 1 en móvil */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-stone/12 mt-14 border border-stone/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
           {gridServices.map((service, index) => (
             <AnimatedSection
               key={service.id}
@@ -30,6 +30,7 @@ export default function Services() {
             </AnimatedSection>
           ))}
         </div>
+
       </div>
     </section>
   )

@@ -67,27 +67,52 @@ export default function ServiceDetailPage() {
       </Helmet>
 
       <Layout>
-        {/* Hero de servicio */}
-        <section className="bg-forest relative overflow-hidden section-padding">
-          <div className="absolute inset-0 bg-gradient-to-br from-forest via-forest to-forest-light opacity-80" />
-          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-gold/50 to-transparent pointer-events-none" />
-          <div className="container-custom relative z-10">
+        {/* Hero de servicio: Imagen de alta visibilidad + Velo dinámico */}
+        <section className="bg-forest relative overflow-hidden pt-36 pb-24 md:pt-48 md:pb-40 lg:pt-56 lg:pb-48 -mt-16 md:-mt-20">
+          {/* Fondo: Imagen de alta calidad */}
+          {service.image && (
+            <div className="absolute inset-0 z-0">
+              <img
+                src={service.image}
+                alt=""
+                className="w-full h-full object-cover opacity-80 scale-105"
+              />
+              {/* Capa de amalgama visual: Forest sutil */}
+              <div className="absolute inset-0 bg-forest/30" />
+            </div>
+          )}
+          
+          {/* Gradiente asimétrico Premium: Protege el texto a la izquierda, libera la imagen a la derecha */}
+          <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/85 to-transparent z-10" />
+          
+          {/* Divisor inferior de luz */}
+          <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent pointer-events-none z-20" />
+          
+          <div className="container-custom relative z-20">
+            {/* Link de retorno con estilo depurado */}
             <Link
               to="/"
-              className="inline-flex items-center gap-1.5 text-cream/65 hover:text-gold transition-colors duration-200 text-xs tracking-widest uppercase mb-8"
+              className="inline-flex items-center gap-2 text-cream/70 hover:text-gold transition-all duration-300 text-xs tracking-[0.2em] uppercase mb-16 group"
             >
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                <path d="M19 12H5M12 19l-7-7 7-7" />
-              </svg>
+              <span className="w-8 h-px bg-gold/50 group-hover:w-12 transition-all duration-300 mr-2" />
               Inicio
             </Link>
-            <p className="text-gold text-xs font-medium tracking-widest uppercase mb-4">
-              Nuestros servicios
-            </p>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-cream leading-tight mb-6">
+            
+            {/* Tag: Minimalist Premium Badge like in Home Hero */}
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-1.5 h-1.5 rounded-full bg-gold-400" />
+              <p className="text-gold-400 text-xs font-medium tracking-[0.2em] uppercase drop-shadow-sm">
+                Nuestros servicios
+              </p>
+            </div>
+            
+            {/* Título: Máximo Impacto */}
+            <h1 className="font-display text-5xl md:text-7xl lg:text-9xl font-semibold text-cream leading-[0.95] mb-12 max-w-4xl tracking-tighter italic drop-shadow-2xl">
               {service.name}
             </h1>
-            <p className="text-cream/85 text-base md:text-lg leading-relaxed max-w-2xl">
+            
+            {/* Descripción: Legibilidad mejorada */}
+            <p className="text-cream/95 text-lg md:text-2xl lg:text-3xl leading-relaxed max-w-4xl font-light drop-shadow-md">
               {service.shortDesc}
             </p>
           </div>
@@ -101,6 +126,7 @@ export default function ServiceDetailPage() {
               {/* Descripción + Beneficios */}
               <div className="md:col-span-2">
                 <AnimatedSection animation="fadeUp">
+
                   <p className="text-stone text-base leading-relaxed mb-10">
                     {service.fullDesc}
                   </p>

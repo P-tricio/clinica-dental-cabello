@@ -19,6 +19,7 @@ export const services = [
     ],
     metaTitle: 'Implantes Dentales en San Pedro Alcántara | Cabello Clínica Dental',
     metaDesc: 'Implantes dentales de titanio con los mejores resultados. Más de 20 años de experiencia.',
+    image: '/images/services/implantes-dentales.jpg',
   },
   {
     id: 2,
@@ -35,6 +36,7 @@ export const services = [
     ],
     metaTitle: 'Ortodoncia en San Pedro Alcántara | Clínica Cabello',
     metaDesc: 'Tratamientos de ortodoncia tradicional e invisible. Consigue tu sonrisa perfecta.',
+    image: '/images/services/ortodoncia.jpg',
   },
   {
     id: 3,
@@ -51,6 +53,7 @@ export const services = [
     ],
     metaTitle: 'Ortodoncia Invisible en Málaga | Cabello Clínica Dental',
     metaDesc: 'Alineadores transparentes invisibles para enderezar tus dientes sin que se note.',
+    image: '/images/services/ortodoncia-invisible.jpg',
   },
   {
     id: 4,
@@ -67,6 +70,7 @@ export const services = [
     ],
     metaTitle: 'Estética Dental en San Pedro Alcántara | Cabello',
     metaDesc: 'Carillas, blanqueamiento y tratamientos estéticos para tu sonrisa perfecta.',
+    image: '/images/services/estetica-dental.jpg',
   },
   {
     id: 5,
@@ -83,6 +87,7 @@ export const services = [
     ],
     metaTitle: 'Periodoncia en Málaga | Clínica Dental Cabello',
     metaDesc: 'Tratamientos de enfermedades de encías y periodoncia con especialista.',
+    image: '/images/services/periodoncia.jpg',
   },
   {
     id: 6,
@@ -99,6 +104,7 @@ export const services = [
     ],
     metaTitle: 'Prótesis Dentales en San Pedro Alcántara | Cabello',
     metaDesc: 'Prótesis dentales removibles e fijas para recuperar tu sonrisa.',
+    image: '/images/services/protesis-dentales.jpg',
   },
   {
     id: 7,
@@ -115,6 +121,7 @@ export const services = [
     ],
     metaTitle: 'Endodoncia (Conductos) en Málaga | Clínica Cabello',
     metaDesc: 'Tratamientos de conductos modernos y sin dolor. Salva tu diente natural.',
+    image: '/images/services/endodoncia.jpg',
   },
   {
     id: 8,
@@ -131,6 +138,7 @@ export const services = [
     ],
     metaTitle: 'Cirugía Bucal en San Pedro Alcántara | Cabello',
     metaDesc: 'Extracciones dentales y cirugía bucal con técnica avanzada.',
+    image: '/images/services/cirugia-bucal.jpg',
   },
   {
     id: 9,
@@ -147,6 +155,7 @@ export const services = [
     ],
     metaTitle: 'Odontopediatría en Málaga | Clínica Cabello',
     metaDesc: 'Tratamientos dentales especializados para niños con profesionales experimentados.',
+    image: '/images/services/odontopediatria.jpg',
   },
   {
     id: 10,
@@ -163,6 +172,7 @@ export const services = [
     ],
     metaTitle: 'Odontología Conservadora en San Pedro Alcántara | Cabello',
     metaDesc: 'Reparación de caries y restauración de dientes con materiales modernos.',
+    image: '/images/services/odontologia-conservadora.jpg',
   },
   {
     id: 11,
@@ -179,6 +189,7 @@ export const services = [
     ],
     metaTitle: 'Prevención Dental en Málaga | Clínica Cabello',
     metaDesc: 'Limpiezas profesionales y revisiones periódicas para prevenir problemas dentales.',
+    image: '/images/services/prevencion-salud-dental.jpg',
   },
   {
     id: 12,
@@ -195,6 +206,7 @@ export const services = [
     ],
     metaTitle: 'Tratamiento de ATM y Bruxismo en San Pedro Alcántara | Cabello',
     metaDesc: 'Especialistas en trastornos de ATM y tratamiento del bruxismo.',
+    image: '/images/services/atm-bruxismo.jpg',
   },
   {
     id: 13,
@@ -211,6 +223,7 @@ export const services = [
     ],
     metaTitle: 'Primera Visita Dental en Málaga | Cabello',
     metaDesc: 'Primera consulta dental completa sin compromiso. Evaluación y diagnóstico gratuito.',
+    image: '/images/services/primera-visita.jpg',
   },
 ]
 

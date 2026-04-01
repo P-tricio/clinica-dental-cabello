@@ -18,26 +18,27 @@ export default function Gallery() {
         </AnimatedSection>
 
         {/* Grid de imágenes */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mt-12">
-          {galleryImages.map((image, index) => (
-            <AnimatedSection key={image.id} animation="fadeUp" delay={index * 40}>
-              <button
-                className="group relative w-full overflow-hidden aspect-square block"
-                onClick={() => setSelectedImage(image)}
-                aria-label={`Ver imagen: ${image.alt}`}
-              >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-forest/0 group-hover:bg-forest/40 transition-all duration-300 flex items-center justify-center">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="white"
+        <div className="relative">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mt-12">
+            {galleryImages.map((image, index) => (
+              <AnimatedSection key={image.id} animation="fadeUp" delay={index * 40}>
+                <button
+                  className="group relative w-full overflow-hidden aspect-square block"
+                  onClick={() => setSelectedImage(image)}
+                  aria-label={`Ver imagen: ${image.alt}`}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-forest/0 group-hover:bg-forest/40 transition-all duration-300 flex items-center justify-center">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="white"
                     strokeWidth="1.5"
                     className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     aria-hidden="true"
@@ -49,6 +50,7 @@ export default function Gallery() {
               </button>
             </AnimatedSection>
           ))}
+          </div>
         </div>
       </div>
 

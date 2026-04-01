@@ -2,7 +2,33 @@
   "permissions": {
     "allow": [
       "Bash(npm run:*)",
-      "mcp__magic__21st_magic_component_inspiration"
+      "mcp__magic__21st_magic_component_inspiration",
+      "Bash(npm install:*)",
+      "Bash(curl -s -L --max-time 30 \"https://aptux.es\")",
+      "Bash(curl -s -L --max-time 30 \"https://21st.dev\")",
+      "Bash(curl -s -L --max-time 30 \"https://21st.dev/components\")",
+      "Bash(grep -oP '\\(?<=component_name\\\\\\\\\"\"\"\":\\\\\\\\\"\"\"\"\\)[^\"\"\"\"]+')",
+      "Bash(curl -s -L --max-time 30 \"https://21st.dev/components/hero\")",
+      "Bash(curl -s -L --max-time 30 \"https://21st.dev/components/backgrounds\")",
+      "Bash(curl -s -L --max-time 30 \"https://21st.dev/s/hero\")",
+      "Bash(tr '<' '\\\\n')",
+      "Bash(curl -s -L --max-time 30 \"https://21st.dev/s/particle\")",
+      "Bash(curl -s -L --max-time 30 \"https://21st.dev/s/neon+glow\")",
+      "Bash(curl -s -L --max-time 30 \"https://21st.dev/s/glassmorphism\")",
+      "Bash(curl -s -L --max-time 30 \"https://21st.dev/magic\")",
+      "Bash(curl -s -L --max-time 30 \"https://21st.dev/community/templates\")",
+      "Bash(tr '>' '\\\\n')",
+      "Bash(grep -v \"^$\\\\|^\\\\s*$\\\\|\\\\\\\\|{\")",
+      "Bash(curl -s -L --max-time 30 \"https://21st.dev/s/hero+section+particles\")",
+      "Bash(curl -s -L --max-time 30 \"https://21st.dev/s/hero+particles\")",
+      "Bash(curl -s -L --max-time 30 \"https://api.21st.dev/api/search?q=hero+particles&type=component\")",
+      "Bash(curl -s -L --max-time 30 \"https://21st.dev/sitemap.xml\")",
+      "Read(//c/Users/PA_91/Documents/Coding/**)",
+      "Bash(npm create:*)",
+      "Bash(npx tailwindcss:*)",
+      "Bash(node node_modules/tailwindcss/lib/cli.js init -p)",
+      "Bash(cd:*)",
+      "Bash(npx vite:*)"
     ]
   }
 }
