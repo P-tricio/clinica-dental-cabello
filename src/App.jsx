@@ -12,6 +12,7 @@ import CookiesPage from './pages/CookiesPage'
 // Common Components
 import WhatsAppButton from './components/common/WhatsAppButton'
 import CookieBanner from './components/common/CookieBanner'
+import ChatWidget from './components/chatbot/ChatWidget'
 
 function ScrollToTopOnRouteChange() {
   const location = useLocation()
@@ -37,6 +38,7 @@ function App() {
         </Routes>
 
         <WhatsAppButton />
+        <ChatWidget />
         <CookieBanner />
       </Router>
     </HelmetProvider>

@@ -73,6 +73,11 @@ html::-webkit-scrollbar-thumb {
   background: var(--color-gold-500);
 }
 
+@keyframes chatbotBounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-6px); }
+}
+
 body {
   font-family: 'DM Sans', sans-serif;
   color: var(--color-grey-900);
