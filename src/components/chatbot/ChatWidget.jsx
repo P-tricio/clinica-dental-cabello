@@ -6,7 +6,7 @@ export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -14,6 +14,7 @@ export default function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.95 }}
             transition={{ duration: 0.18, ease: 'easeOut' }}
+            style={{ overflow: 'hidden', borderRadius: '1rem' }}
           >
             <ChatWindow onClose={() => setIsOpen(false)} />
           </motion.div>
@@ -24,7 +25,7 @@ export default function ChatWidget() {
         onClick={() => setIsOpen((prev) => !prev)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="w-[52px] h-[52px] shadow-lg hover:shadow-xl flex items-center justify-center rounded-full transition-shadow"
+        className="w-[52px] h-[52px] shadow-lg hover:shadow-xl flex items-center justify-center rounded-full overflow-hidden transition-shadow"
         style={{ backgroundColor: 'var(--color-gold-600)' }}
         aria-label={isOpen ? 'Cerrar asistente virtual' : 'Abrir asistente virtual'}
       >

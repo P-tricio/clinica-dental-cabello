@@ -27,7 +27,7 @@ export default function WhatsAppButton() {
       href={whatsappUrl}
       target="_blank"
       rel="noreferrer"
-      className="fixed bottom-8 left-8 w-13 h-13 bg-[#25D366] text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center z-40"
+      className="fixed bottom-6 left-6 rounded-full bg-[#25D366] text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center z-40 overflow-hidden"
       aria-label="Contactar por WhatsApp"
       style={{ width: '52px', height: '52px' }}
     >
