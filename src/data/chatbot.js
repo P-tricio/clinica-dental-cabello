@@ -100,16 +100,20 @@ export const tools = [
             type: 'string',
             description: 'Nombre del usuario',
           },
-          contacto: {
+          email: {
             type: 'string',
-            description: 'Email o teléfono de contacto',
+            description: 'Email de contacto, si el usuario lo ha proporcionado',
+          },
+          telefono: {
+            type: 'string',
+            description: 'Teléfono de contacto, si el usuario lo ha proporcionado',
           },
           mensaje: {
             type: 'string',
             description: 'Consulta o mensaje',
           },
         },
-        required: ['nombre', 'contacto', 'mensaje'],
+        required: ['nombre', 'mensaje'],
       },
     },
   },

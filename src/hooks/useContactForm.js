@@ -79,22 +79,21 @@ export default function useContactForm() {
     setIsError(false)
 
     try {
-      // TODO: Configurar EmailJS con claves reales
-      // emailjs.init(process.env.VITE_EMAILJS_PUBLIC_KEY)
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          nombre: formData.name,
+          email: formData.email,
+          telefono: formData.phone,
+          servicio: formData.service || 'Sin especificar',
+          mensaje: formData.message || '',
+          origen: 'Formulario web',
+          transcript: '',
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
 
-      // await emailjs.send(
-      //   process.env.VITE_EMAILJS_SERVICE_ID,
-      //   process.env.VITE_EMAILJS_TEMPLATE_ID,
-      //   {
-      //     from_name: formData.name,
-      //     from_email: formData.email,
-      //     phone: formData.phone,
-      //     service: formData.service || 'Sin especificar',
-      //     message: formData.message,
-      //   }
-      // )
-
-      // Por ahora, simulamos éxito
       setIsSuccess(true)
       setFormData({
         name: '',

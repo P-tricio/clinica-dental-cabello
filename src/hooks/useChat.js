@@ -72,8 +72,16 @@ export default function useChat() {
       } else if (toolName === 'enviar_contacto') {
         await emailjs.send(
           import.meta.env.VITE_EMAILJS_SERVICE_ID,
-          import.meta.env.VITE_EMAILJS_TEMPLATE_ID_CONTACTO,
-          { ...args, transcript },
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          {
+            nombre: args.nombre,
+            email: args.email ?? '',
+            telefono: args.telefono ?? '',
+            servicio: '',
+            mensaje: args.mensaje,
+            origen: 'Chatbot',
+            transcript,
+          },
           import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         )
         setMessages((prev) => [
