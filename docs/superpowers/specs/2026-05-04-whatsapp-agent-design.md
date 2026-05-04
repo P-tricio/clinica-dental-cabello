@@ -108,15 +108,39 @@ export default {
   email: 'info@clinicadentalcabello.es',
   address: 'Av. de la Constitución 19, 7A, San Pedro Alcántara, Málaga',
   hours: 'Lunes a Viernes 9:00–21:00 | Sábados 11:00–13:00 | Domingos cerrado',
-  doctor: 'Dr. Francisco Cabello — Licenciado en Odontología, +20 años experiencia',
-  services: [
-    { name: 'Implantes Dentales', desc: 'Implantes de titanio de alta durabilidad' },
-    { name: 'Ortodoncia Invisible', desc: 'Alineadores transparentes, resultados en 6-24 meses' },
-    // ... resto de servicios
+  free_first_visit: true,
+
+  // Cada profesional tiene su propio calendario Google
+  professionals: [
+    {
+      id: 'cabello',
+      name: 'Dr. Francisco Cabello',
+      title: 'Licenciado en Odontología',
+      specialties: ['Implantología', 'Periodoncia', 'Ortodoncia', 'Estética Dental'],
+      calendar_id: 'GOOGLE_CALENDAR_ID_CABELLO', // se rellena en .env o aquí
+    },
+    // Añadir más profesionales aquí cuando sea necesario
   ],
-  appointment_duration_minutes: 60,  // duración por defecto de una cita
-  calendar_id: 'primary',            // Google Calendar ID del negocio
-  free_first_visit: true,            // si hay primera visita gratuita
+
+  // Duración específica por servicio — el agente la usa automáticamente
+  services: [
+    { name: 'Primera Visita',          desc: 'Evaluación inicial gratuita', duration_minutes: 30  },
+    { name: 'Implantes Dentales',      desc: 'Implantes de titanio',        duration_minutes: 90  },
+    { name: 'Ortodoncia',              desc: 'Ortodoncia tradicional',       duration_minutes: 45  },
+    { name: 'Ortodoncia Invisible',    desc: 'Alineadores transparentes',    duration_minutes: 45  },
+    { name: 'Estética Dental',         desc: 'Carillas y blanqueamiento',    duration_minutes: 60  },
+    { name: 'Periodoncia',             desc: 'Salud de encías',              duration_minutes: 60  },
+    { name: 'Prótesis Dentales',       desc: 'Prótesis removibles y fijas',  duration_minutes: 60  },
+    { name: 'Endodoncia',              desc: 'Tratamiento de conductos',     duration_minutes: 75  },
+    { name: 'Cirugía Bucal',           desc: 'Extracciones y cirugía',       duration_minutes: 60  },
+    { name: 'Odontopediatría',         desc: 'Odontología infantil',         duration_minutes: 45  },
+    { name: 'Odontología Conservadora',desc: 'Reparación de caries',         duration_minutes: 45  },
+    { name: 'Prevención Dental',       desc: 'Limpiezas y revisiones',       duration_minutes: 45  },
+    { name: 'ATM y Bruxismo',          desc: 'Trastornos mandibulares',      duration_minutes: 60  },
+  ],
+
+  // Duración por defecto si el servicio no especifica una
+  default_duration_minutes: 60,
 }
 ```
 
@@ -195,13 +219,18 @@ El `actualizar_perfil` tool se llama activamente durante la conversación — ca
 ```js
 {
   name: 'consultar_disponibilidad',
-  description: 'Consulta huecos libres en el calendario de la clínica para un rango de fechas',
+  description: 'Consulta huecos libres en el calendario para un servicio y rango de fechas',
   parameters: {
+    servicio: string,           // el agente deduce la duración automáticamente
     fecha_inicio: string,       // "2026-05-10"
     fecha_fin: string,          // "2026-05-14"
-    duracion_minutos: number    // duración de la cita
+    profesional_id: string,     // opcional — si el usuario pide un profesional concreto
   }
-  // Devuelve: array de slots libres → GPT los presenta al usuario
+  // Lógica interna:
+  // 1. Busca en config el duration_minutes del servicio
+  // 2. Si profesional_id → consulta solo ese calendario
+  //    Si no → consulta todos los profesionales y une disponibilidad
+  // Devuelve: array de { datetime, profesional } → GPT los presenta al usuario
 }
 ```
 
@@ -216,9 +245,11 @@ El `actualizar_perfil` tool se llama activamente durante la conversación — ca
     email: string,              // opcional
     servicio: string,
     datetime: string,           // ISO 8601: "2026-05-10T10:00:00"
+    profesional_id: string,     // el profesional confirmado en consultar_disponibilidad
     notas: string               // opcional
   }
-  // Acción: crea evento Calendar + envía WhatsApp al número de la clínica
+  // Acción: crea evento en el calendario del profesional correcto
+  //         + envía WhatsApp al número de la clínica con todos los datos
 }
 ```
 
@@ -363,6 +394,10 @@ Meta requiere HTTPS para el webhook. Let's Encrypt (certbot) gestiona el certifi
 - Multi-tenant (un despliegue para varios clientes) → cuando haya >3 clientes
 - Recordatorios automáticos de cita (WhatsApp 24h antes) → sprint futuro
 - Cancelación/modificación de citas desde WhatsApp → sprint futuro
+- Duraciones reales por servicio → pendiente de confirmación con la clínica
+  (la estructura en config/business.js ya está lista, solo hay que ajustar los minutos)
+- Preferencia de profesional por parte del usuario → la arquitectura multi-profesional
+  ya está diseñada, se activa añadiendo más entradas en el array professionals[]
 
 ---
 
