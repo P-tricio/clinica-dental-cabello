@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T22:05:00.000Z",
+  "title": "Design System: Cabello Clínica Dental",
+  "extensions": {
+    "colorMeta": {
+      "primary": { "role": "primary", "displayName": "Champagne Gold", "canonical": "#c9975f" },
+      "primary-dark": { "role": "primary", "displayName": "Deep Gold", "canonical": "#a67c42" },
+      "neutral-bg": { "role": "neutral", "displayName": "Off-White Warm", "canonical": "#fcfcfb" },
+      "neutral-surface": { "role": "neutral", "displayName": "Egger Cream Beige", "canonical": "#f3ede5" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Títulos principales de gran impacto en Hero y servicios." },
+      "headline": { "displayName": "Headline", "purpose": "Encabezados de sección y bloques informativos." },
+      "body": { "displayName": "Body", "purpose": "Lectura fluida y descripciones de tratamientos." }
+    },
+    "shadows": [
+      { "name": "ambient-glow", "value": "0 10px 30px -10px rgba(201, 151, 95, 0.15)", "purpose": "Resplandor flotante en botones prioritarios." },
+      { "name": "card-rest", "value": "0 4px 20px -2px rgba(0, 0, 0, 0.04)", "purpose": "Elevación sutil de descanso en tarjetas." }
+    ],
+    "motion": [
+      { "name": "ease-out-smooth", "value": "cubic-bezier(0.25, 0.46, 0.45, 0.94)", "purpose": "Transición suave en micro-interacciones." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Boton Primario",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Llamada a la acción principal para pedir cita o contactar.",
+      "html": "<button class=\"ds-btn-primary\">Pedir Cita Online</button>",
+      "css": ".ds-btn-primary { background: #c9975f; color: #ffffff; padding: 12px 28px; border-radius: 9999px; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.9375rem; border: none; cursor: pointer; transition: background 0.2s ease, transform 0.15s ease; box-shadow: 0 4px 14px rgba(201, 151, 95, 0.25); } .ds-btn-primary:hover { background: #a67c42; transform: translateY(-1px); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "El Santuario Arquitectónico de la Salud Dental",
+    "overview": "Cabello Clínica Dental concibe la visita al dentista como una experiencia de bienestar, precisión y serenidad basada en materiales EGGER y luz natural.",
+    "keyCharacteristics": [
+      "Atmósfera cálida y envolvente con neutros tintados y acentos dorados champagne.",
+      "Equilibrio entre la elegancia editorial (Cormorant Garamond) y la claridad funcional (DM Sans).",
+      "Tecnología interactiva con propósito (secuencia 3D del implante)."
+    ],
+    "rules": [
+      { "name": "The Restrained Gold Rule", "body": "El dorado nunca debe superar el 15% de la superficie visual en pantallas de contenido.", "section": "colors" },
+      { "name": "The Editorial Title Rule", "body": "Todos los encabezados principales (H1, H2) se componen exclusivamente en Cormorant Garamond.", "section": "typography" }
+    ],
+    "dos": [
+      "Do mantener el ratio de contraste WCAG AA en textos sobre fondos beige y dorados.",
+      "Do emplear Cormorant Garamond para transmitir autoridad médica y distinción en titulares."
+    ],
+    "donts": [
+      "Don't utilizar el color azul cyan clásico de franquicias low-cost.",
+      "Don't aplicar gradientes de texto artificiales en titulares médicos.",
+      "Don't emplear fondos blancos fríos en grandes superficies."
+    ]
+  }
+}

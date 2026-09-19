@@ -101,59 +101,75 @@ export default function Contact() {
               <h3 className="font-display text-xl font-semibold text-forest mb-6">Escríbenos</h3>
 
               {isSuccess && (
-                <div className="p-4 bg-forest/10 border-l-2 border-forest text-forest text-sm">
-                  Mensaje recibido. Nos pondremos en contacto contigo pronto.
+                <div role="alert" aria-live="polite" className="p-4 bg-forest/10 border border-forest/30 rounded-lg text-forest text-sm flex items-center gap-3">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" className="shrink-0">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                  <span>Mensaje recibido. Nos pondremos en contacto contigo pronto.</span>
                 </div>
               )}
               {isError && (
-                <div className="p-4 bg-red-50 border-l-2 border-red-400 text-red-700 text-sm">
-                  Error al enviar el mensaje. Por favor, inténtalo de nuevo.
+                <div role="alert" aria-live="polite" className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm flex items-center gap-3">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" className="shrink-0">
+                    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                  </svg>
+                  <span>Error al enviar el mensaje. Por favor, inténtalo de nuevo.</span>
                 </div>
               )}
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-medium text-charcoal mb-1.5 tracking-wide">Nombre</label>
+                  <label htmlFor="contact-name" className="block text-xs font-medium text-charcoal mb-1.5 tracking-wide">Nombre</label>
                   <input
                     type="text"
+                    id="contact-name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Tu nombre"
+                    aria-invalid={errors.name ? 'true' : 'false'}
+                    aria-describedby={errors.name ? 'contact-name-error' : undefined}
                     className={`w-full px-4 py-3 text-sm bg-cream border focus:outline-none focus:border-gold focus:shadow-[0_0_0_3px_rgba(212,175,55,0.1)] transition-all duration-200 placeholder:text-stone/40 ${errors.name ? 'border-red-400' : 'border-stone/20'}`}
                   />
-                  {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+                  {errors.name && <p id="contact-name-error" className="text-red-500 text-xs mt-1">{errors.name}</p>}
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-charcoal mb-1.5 tracking-wide">Teléfono</label>
+                  <label htmlFor="contact-phone" className="block text-xs font-medium text-charcoal mb-1.5 tracking-wide">Teléfono</label>
                   <input
                     type="tel"
+                    id="contact-phone"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+34 600 000 000"
+                    aria-invalid={errors.phone ? 'true' : 'false'}
+                    aria-describedby={errors.phone ? 'contact-phone-error' : undefined}
                     className={`w-full px-4 py-3 text-sm bg-cream border focus:outline-none focus:border-gold focus:shadow-[0_0_0_3px_rgba(212,175,55,0.1)] transition-all duration-200 placeholder:text-stone/40 ${errors.phone ? 'border-red-400' : 'border-stone/20'}`}
                   />
-                  {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
+                  {errors.phone && <p id="contact-phone-error" className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-charcoal mb-1.5 tracking-wide">Email</label>
+                <label htmlFor="contact-email" className="block text-xs font-medium text-charcoal mb-1.5 tracking-wide">Email</label>
                 <input
                   type="email"
+                  id="contact-email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="tu@email.com"
+                  aria-invalid={errors.email ? 'true' : 'false'}
+                  aria-describedby={errors.email ? 'contact-email-error' : undefined}
                   className={`w-full px-4 py-3 text-sm bg-cream border focus:outline-none focus:border-gold focus:shadow-[0_0_0_3px_rgba(212,175,55,0.1)] transition-all duration-200 placeholder:text-stone/40 ${errors.email ? 'border-red-400' : 'border-stone/20'}`}
                 />
-                {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+                {errors.email && <p id="contact-email-error" className="text-red-500 text-xs mt-1">{errors.email}</p>}
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-charcoal mb-1.5 tracking-wide">Servicio (opcional)</label>
+                <label htmlFor="contact-service" className="block text-xs font-medium text-charcoal mb-1.5 tracking-wide">Servicio (opcional)</label>
                 <select
+                  id="contact-service"
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
@@ -169,8 +185,9 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-charcoal mb-1.5 tracking-wide">Mensaje (opcional)</label>
+                <label htmlFor="contact-message" className="block text-xs font-medium text-charcoal mb-1.5 tracking-wide">Mensaje (opcional)</label>
                 <textarea
+                  id="contact-message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}

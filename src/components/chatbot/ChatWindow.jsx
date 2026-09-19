@@ -48,7 +48,8 @@ export default function ChatWindow({ onClose }) {
     <div
       className="flex flex-col rounded-2xl shadow-2xl overflow-hidden"
       style={{
-        width: '360px',
+        width: 'min(360px, calc(100vw - 2rem))',
+        maxHeight: 'min(520px, calc(100dvh - 6rem))',
         height: '520px',
         backgroundColor: 'var(--color-grey-50)',
         border: '1px solid var(--color-beige-200)',

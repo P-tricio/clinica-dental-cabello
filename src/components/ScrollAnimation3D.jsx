@@ -26,16 +26,44 @@ const ScrollAnimation3D = forwardRef(function ScrollAnimation3D({ scrollRef }, r
     return () => unsubscribe()
   }, [frameIndex])
 
-  // Precargar TODOS los frames al montar (34MB total en WebP es manejable)
+  // Precargar primeros frames prioritarios al montar, luego el resto de forma progresiva en idle
   useEffect(() => {
-    let loaded = 0
-    for (let i = 0; i < TOTAL_FRAMES; i++) {
+    let isCancelled = false
+    const PRIORITY_COUNT = 24
+
+    for (let i = 0; i < Math.min(PRIORITY_COUNT, TOTAL_FRAMES); i++) {
       const img = new Image()
       img.onload = () => {
-        loaded++
-        if (loaded === 1) setIsLoaded(true)
+        if (!isCancelled && i === 0) setIsLoaded(true)
       }
       img.src = imageFrames[i]
+    }
+
+    const scheduleIdleLoad = (startIndex) => {
+      if (startIndex >= TOTAL_FRAMES || isCancelled) return
+
+      const loadChunk = () => {
+        if (isCancelled) return
+        const CHUNK_SIZE = 20
+        const end = Math.min(startIndex + CHUNK_SIZE, TOTAL_FRAMES)
+        for (let i = startIndex; i < end; i++) {
+          const img = new Image()
+          img.src = imageFrames[i]
+        }
+        scheduleIdleLoad(end)
+      }
+
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(loadChunk, { timeout: 1500 })
+      } else {
+        setTimeout(loadChunk, 150)
+      }
+    }
+
+    scheduleIdleLoad(PRIORITY_COUNT)
+
+    return () => {
+      isCancelled = true
     }
   }, [])
 

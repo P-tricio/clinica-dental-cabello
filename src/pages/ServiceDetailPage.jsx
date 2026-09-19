@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import Layout from '@/components/layout/Layout'
 import SectionTitle from '@/components/ui/SectionTitle'
@@ -33,8 +33,18 @@ const faqs = [
 
 export default function ServiceDetailPage() {
   const { slug } = useParams()
+  const navigate = useNavigate()
   const [openFaq, setOpenFaq] = useState(null)
   const service = services.find((s) => s.slug === slug)
+
+  const handleContactClick = (e) => {
+    e.preventDefault()
+    navigate('/')
+    setTimeout(() => {
+      const el = document.getElementById('contacto')
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }, 100)
+  }
 
   if (!service) {
     return (
@@ -161,9 +171,11 @@ export default function ServiceDetailPage() {
                       {faqs.map((faq, i) => (
                         <div key={i} className="py-4">
                           <button
+                            id={`faq-btn-${i}`}
                             onClick={() => setOpenFaq(openFaq === i ? null : i)}
                             className="w-full flex items-start justify-between gap-4 text-left group"
                             aria-expanded={openFaq === i}
+                            aria-controls={`faq-answer-${i}`}
                           >
                             <span className="font-medium text-charcoal text-sm group-hover:text-forest transition-colors duration-200">
                               {faq.q}
@@ -173,7 +185,12 @@ export default function ServiceDetailPage() {
                             </span>
                           </button>
                           {openFaq === i && (
-                            <p className="text-stone text-sm leading-relaxed mt-3 pr-8">
+                            <p
+                              id={`faq-answer-${i}`}
+                              role="region"
+                              aria-labelledby={`faq-btn-${i}`}
+                              className="text-stone text-sm leading-relaxed mt-3 pr-8"
+                            >
                               {faq.a}
                             </p>
                           )}
@@ -208,7 +225,8 @@ export default function ServiceDetailPage() {
                   </a>
 
                   <a
-                    href="#contacto"
+                    href="/#contacto"
+                    onClick={handleContactClick}
                     className="flex items-center justify-center gap-2 w-full border border-forest/30 text-forest py-3.5 text-sm font-medium tracking-wide hover:border-forest hover:bg-forest/5 transition-all duration-200"
                   >
                     Escríbenos
