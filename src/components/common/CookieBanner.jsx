@@ -1,15 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function CookieBanner() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const cookieConsent = localStorage.getItem('cookieConsent')
-    if (!cookieConsent) {
-      setIsVisible(true)
-    }
-  }, [])
+  const [isVisible, setIsVisible] = useState(() => {
+    if (typeof window === 'undefined') return false
+    return !localStorage.getItem('cookieConsent')
+  })
 
   const handleAccept = () => {
     localStorage.setItem('cookieConsent', 'accepted')

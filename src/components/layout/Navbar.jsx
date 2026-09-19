@@ -38,10 +38,12 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  useEffect(() => {
+  const [prevLocationKey, setPrevLocationKey] = useState(location.key)
+  if (prevLocationKey !== location.key) {
+    setPrevLocationKey(location.key)
     setIsMobileMenuOpen(false)
     setIsServicesOpen(false)
-  }, [location])
+  }
 
   // Bloquear scroll del body cuando el menú está abierto
   useEffect(() => {

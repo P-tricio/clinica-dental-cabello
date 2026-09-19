@@ -1,16 +1,11 @@
-import { useState, useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { clinicData } from '@/data/clinic'
 import ScrollAnimation3D from '@/components/ScrollAnimation3D'
 import logo from '@/assets/images/logo.png'
 
 export default function Hero() {
-  const [isLoaded, setIsLoaded] = useState(false)
   const scrollWrapperRef = useRef(null)
-
-  useEffect(() => {
-    setIsLoaded(true)
-  }, [])
 
   const { scrollYProgress } = useScroll({
     target: scrollWrapperRef,
@@ -112,7 +107,7 @@ export default function Hero() {
         <motion.div
           className="absolute top-6 left-6 z-30 md:hidden"
           initial={{ opacity: 0, y: -10 }}
-          animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <img src={logo} alt="Cabello Clínica Dental" className="h-6 w-auto object-contain filter contrast-125" />
@@ -134,7 +129,7 @@ export default function Hero() {
         <motion.div
           className="absolute left-0 top-0 bottom-0 z-[7] w-1 bg-gradient-to-b from-gold/40 via-gold/20 to-gold/40 hidden md:block"
           initial={{ scaleY: 0 }}
-          animate={isLoaded ? { scaleY: 1 } : { scaleY: 0 }}
+          animate={{ scaleY: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
           style={{ transformOrigin: "top" }}
         />
@@ -144,7 +139,7 @@ export default function Hero() {
           className="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-16 lg:px-20 pt-72 md:pt-0"
           variants={containerVariants}
           initial="hidden"
-          animate={isLoaded ? "visible" : "hidden"}
+          animate="visible"
         >
           {/* Texto: full width en mobile, mitad en desktop */}
           <div className="max-w-full md:max-w-xl lg:max-w-2xl">
@@ -223,7 +218,7 @@ export default function Hero() {
         <motion.div
           className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3"
           initial={{ opacity: 0 }}
-          animate={isLoaded ? { opacity: 1 } : { opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.8 }}
         >
           <span className="text-xs tracking-widest uppercase text-cream/60">Desliza</span>
